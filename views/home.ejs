@@ -3,6 +3,22 @@
   <head>
     
     <% include partials/head.ejs %>
+
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+
+    <script>
+        // Initialize Firebase
+        // TODO: Replace with your project's customized code snippet
+        var config = {
+        apiKey: "AIzaSyCJ1j9XAV4qFbCnP4WpoiRcJ4nV8OgLMTg",
+        authDomain: "mypotter-a97ef.firebaseapp.com",
+        databaseURL: "https://mypotter-a97ef.firebaseio.com",
+        projectId: "mypotter-a97ef",
+        storageBucket: "mypotter-a97ef.appspot.com",
+        messagingSenderId: "682283844468",
+        };
+        firebase.initializeApp(config);
+    </script>
     
   </head>
 

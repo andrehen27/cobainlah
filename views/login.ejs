@@ -13,12 +13,8 @@
     </div>
 
     <div>
-        <!-- <a href="/home">Sign in Here</a> -->
-        <button onclick="googleSignIn()"> Google Sign In</button>
 
         <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-
-        <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-auth.js"></script>
 
         <script>
           // Initialize Firebase
@@ -32,18 +28,30 @@
             messagingSenderId: "682283844468",
           };
           firebase.initializeApp(config);
-
-          googleSignIn=()=>{
-              base_provider = new firebase.auth.GoogleAuthProvider()
-              firebase.auth().signInWithPopup(base_provider).then(function(result){
-                  console.log(result)
-                  console.log("Success Google Account linked")
-              }).catch(function(err){
-                  console.log(err)
-                  console.log("failed to do")
-              })
-          }
         </script>
+
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.1/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.1/firebaseui.css" />
+        <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+            signInSuccessUrl: '/home',
+            signInOptions: [
+            // Leave the lines as is for the providers you want to offer your users.
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            ],
+            // tosUrl and privacyPolicyUrl accept either url string or a callback
+            // function.
+            // Terms of service url/callback.
+            tosUrl: '<your-tos-url>',
+        };
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+        </script>
+
     </div>
 
     <% include partials/footer.ejs %>
