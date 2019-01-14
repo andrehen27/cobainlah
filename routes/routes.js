@@ -1,5 +1,13 @@
 var moviesJson = require('../movies.json')
 
+exports.login = function (req,res){
+    var movies = moviesJson.movies
+
+    res.render("login",{
+        movies:movies
+    })
+}
+
 exports.home = function (req,res){
 
     var movies = moviesJson.movies
