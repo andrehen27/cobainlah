@@ -29,12 +29,14 @@ exports.movie_number = function (req,res){
         var movie = movies[movie_number-1]
         var title = movie.title
         var main_characters = movie.main_characters
+        var video = movie.video
 
         res.render('movie_number',{
             movies : movies,
             title : title,
             movie : movie,
-            main_characters : main_characters
+            main_characters : main_characters,
+            video : video
         })        
     }else{
         res.render('error_page',{
