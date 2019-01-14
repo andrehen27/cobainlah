@@ -13,7 +13,34 @@
     </div>
 
     <div>
-        <a href="/home">click here</a>
+        <!-- <a href="/home">Sign in Here</a> -->
+        <button onclick="googleSignIn()"> Google Sign In</button>
+
+        <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          // TODO: Replace with your project's customized code snippet
+          var config = {
+            apiKey: "AIzaSyCJ1j9XAV4qFbCnP4WpoiRcJ4nV8OgLMTg",
+            authDomain: "mypotter-a97ef.firebaseapp.com",
+            databaseURL: "https://mypotter-a97ef.firebaseio.com",
+            projectId: "mypotter-a97ef",
+            storageBucket: "mypotter-a97ef.appspot.com",
+            messagingSenderId: "682283844468",
+          };
+          firebase.initializeApp(config);
+
+          googleSignIn=()=>{
+              base_provider = new firebase.auth.GoogleAuthProvider()
+              firebase.auth().signInWithPopup(base_provider).then(function(result){
+                  console.log(result)
+                  console.log("Success Google Account linked")
+              }).catch(function(err){
+                  console.log(err)
+                  console.log("failed to do")
+              })
+          }
+        </script>
     </div>
 
     <% include partials/footer.ejs %>
