@@ -284,6 +284,12 @@ Movie-Single Poster and Description Styles
 	margin-top: 50px;
 }
 
+.div-padding {
+	padding-left : 50px;
+	margin-top: 50px;
+
+}
+
 .description-wrapper {
 	float: right;
 	margin-left: 5%;
